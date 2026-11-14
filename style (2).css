@@ -1,0 +1,200 @@
+/* Ayomide's Graduation: mobile-first styles.
+   Change --accent to recolor the gold highlights. */
+:root {
+  --accent: #F2B93B;
+  --navy: #14205A;
+  --navy-deep: #0C1440;
+  --ink: #12172F;
+  --muted: #4A5072;
+  --paper: #F6F7FB;
+  --line: #DDE0EE;
+  --on-navy: #E3E6F7;
+  --on-navy-muted: #C9CEEA;
+  --display: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--navy); }
+a:hover { color: var(--navy-deep); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+.band { padding-block: 64px; }
+.band--navy { background: var(--navy); color: #fff; }
+.band--white { background: #fff; }
+
+.stack { display: flex; flex-direction: column; }
+
+.eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.band--navy .eyebrow { color: var(--on-navy-muted); }
+
+h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(30px, 7vw, 52px);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* Hero */
+/* Background photo: save your picture as photos/hero.jpg.
+   The dark navy layer on top keeps the white text easy to read.
+   Raise or lower the 0.72 to make the photo darker or lighter. */
+.hero {
+  padding-block: 56px 72px;
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(rgba(12, 20, 64, 0.72), rgba(12, 20, 64, 0.72)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgrKQHMHDk5knCl92lVsZblCeuyZXYVnEzrqVHIADkxQ&s=10");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.hero .stack { gap: 28px; }
+.hero-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hero-top .eyebrow { font-size: 14px; }
+
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(52px, 15vw, 150px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.surname {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(24px, 6vw, 48px);
+  line-height: 1.1;
+  color: var(--accent);
+}
+.intro { margin: 0; max-width: 560px; font-size: 18px; line-height: 1.55; color: var(--on-navy); }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+}
+.btn--gold { background: var(--accent); color: var(--navy-deep); }
+.btn--gold:hover { color: var(--navy-deep); filter: brightness(1.05); }
+.btn--outline { border: 2px solid #8F98D0; color: #fff; }
+.btn--outline:hover { color: #fff; border-color: #fff; }
+
+/* Details */
+.details { padding-block: 64px; }
+.section-head { display: flex; flex-direction: column; gap: 8px; }
+.cards { display: flex; flex-wrap: wrap; gap: 16px; }
+.card {
+  flex: 1 1 280px;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.card p { margin: 0; font-size: 22px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; max-width: 720px; }
+.step { display: flex; gap: 16px; }
+.rail { display: flex; flex-direction: column; align-items: center; flex: 0 0 auto; }
+.dot { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); border: 3px solid var(--navy); }
+.line { width: 3px; flex: 1 1 auto; min-height: 40px; background: var(--line); }
+.step-body { flex: 1 1 0; min-width: 0; padding-bottom: 32px; display: flex; flex-direction: column; gap: 4px; }
+.step:last-child .step-body { padding-bottom: 0; }
+.when { margin: 0; font-size: 14px; font-weight: 700; color: var(--muted); }
+.what { margin: 0; font-size: 20px; font-weight: 700; line-height: 1.3; }
+.note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted); }
+
+/* Gallery */
+.gallery { display: flex; flex-wrap: wrap; gap: 12px; }
+.photo {
+  flex: 1 1 160px;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  border: 2px dashed #A9AFD3;
+  border-radius: 14px;
+  background: #ECEEF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+}
+/* When you add real photos, use: <div class="photo"><img src="photos/one.jpg" alt="..."></div> */
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo:has(img) { padding: 0; border: 0; }
+
+/* Message */
+.message-band { padding-block: 64px 56px; }
+.message-band .stack { gap: 24px; }
+.message {
+  margin: 0;
+  max-width: 720px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(22px, 5vw, 36px);
+  line-height: 1.3;
+}
+.bar { width: 64px; height: 4px; border-radius: 2px; background: var(--accent); }
+.sign { margin: 0; font-size: 16px; color: var(--on-navy-muted); }
+
+@media (min-width: 720px) {
+  .band, .details { padding-block: 96px; }
+  .hero { padding-block: 96px 112px; }
+  .photo { flex-basis: 220px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
